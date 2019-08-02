@@ -3,11 +3,13 @@ import { StyleSheet, View, Text } from "react-native";
 
 import PlaceInput from "./src/components/PlaceInput/PlaceInput";
 import PlaceList from "./src/components/PlaceList/PlaceList";
+import PlaceDetail from './src/components/PlaceDetail/PlaceDetail';
 //import placeImage from './src/assets/cd.png';
 
 export default class App extends Component {
   state = {
-    places: []
+    places: [],
+    selectedPlace: null
   };
 
   placeAddedHandler = placeName => {
@@ -24,24 +26,34 @@ export default class App extends Component {
     });
   };
 
-  placeDeleteHandler = (index) => {
+  placeSelectedHandler = (index) => {
     this.setState(prevState => {
-      return {
-        places: prevState.places.filter((place) => {
-          return place.key !== index;
+      return{
+        selectedPlace: prevState.places.find(place => {
+          return place.key === key;
         })
       };
     });
+    // this.setState(prevState => {
+    //   return {
+    //     places: prevState.places.filter((place) => {
+    //       return place.key !== index;
+    //     })
+    //   };
+    // });
   };
 
   render() {
     return (
       <View style={styles.container}>
+        <PlaceDetail
+          selectedPlace={this.state.selectedPlace}
+        />
         <Text>Something has changed</Text>
         <PlaceInput onPlaceAdded={this.placeAddedHandler} />
         <PlaceList
         places={this.state.places}
-        onItemDeleted={this.placeDeleteHandler}
+        onItemSelected={this.placeSelectedHandler}
         />
       </View>
     );
