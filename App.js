@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 
 import PlaceInput from "./src/components/PlaceInput/PlaceInput";
 import PlaceList from "./src/components/PlaceList/PlaceList";
+//import placeImage from './src/assets/cd.png';
 
 export default class App extends Component {
   state = {
@@ -14,7 +15,10 @@ export default class App extends Component {
       return {
         places: prevState.places.concat({
           key: Math.random(),
-          placeName: placeName
+          placeName: placeName,
+          image: {
+            uri: "https://images.musement.com/cover/0002/49/thumb_148242_cover_header.jpeg?w=1200&h=630&q=60&fit=crop"
+          }
         })
       };
     });
