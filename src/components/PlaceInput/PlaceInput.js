@@ -24,7 +24,7 @@ class PlaceInput extends Component {
     return (
       <View style={styles.inputContainer}>
         <TextInput
-          placeholder="Enter a place"
+          placeholder="Enter aaa place"
           value={this.state.placeName}
           onChangeText={this.placeNameChangedHandler}
           style={styles.placeInput}
@@ -32,6 +32,7 @@ class PlaceInput extends Component {
         <Button
           title="Add"
           style={styles.placeButton}
+          color="darksalmon"
           onPress={this.placeSubmitHandler}
         />
       </View>
