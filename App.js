@@ -19,7 +19,7 @@ export default class App extends Component {
           key: Math.random(),
           placeName: placeName,
           image: {
-            uri: "https://images.musement.com/cover/0002/49/thumb_148242_cover_header.jpeg?w=1200&h=630&q=60&fit=crop"
+            uri: "https://images.vexels.com/media/users/3/128308/isolated/preview/e3496b3f1110a234cadd70a8eef71076-new-york-city-skyline-by-vexels.png"
           }
         })
       };
@@ -30,7 +30,7 @@ export default class App extends Component {
     this.setState(prevState => {
       return{
         selectedPlace: prevState.places.find(place => {
-          return place.key === key;
+          return place.key === index;
         })
       };
     });
